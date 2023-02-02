@@ -1,7 +1,7 @@
 import React,{useEffect,useRef} from 'react'
 import Typed from 'typed.js';
 
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaReact } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedinIn, FaReact } from "react-icons/fa";
 import { SiTailwindcss, SiHtml5, SiJavascript } from "react-icons/si";
 
 const LeftBanner = () => {
@@ -34,9 +34,11 @@ const LeftBanner = () => {
       
       </h2>
       <p className="text-base font-bodyFont leading-6 tracking-wide">
-        I use animation as a third dimension by which to simplify experiences
-        and kuiding thro each and every interaction. I'm not adding motion
-        just to spruce things up, but doing it in ways that.
+      As a graphic designer and fullstack developer, 
+      I harness the power of animation to bring an 
+      added level of dimension and simplicity to user experiences. 
+      My goal is not just to add visual interest, but to incorporate motion 
+      in a strategic manner that guides users seamlessly through interactions.
       </p>
     </div>
     <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
@@ -46,13 +48,14 @@ const LeftBanner = () => {
         </h2>
         <div className="flex gap-4">
           <span className="bannerIcon">
-            <FaFacebookF  href="https://github.com/Guantai001/DiceRoller" target="_blank"/>
+          <a href="https://github.com/eve-atieno" target="_blank"><FaGithub /></a>
+
           </span>
           <span className="bannerIcon">
-            <FaTwitter />
+          <a href="https://twitter.com/Atieno_Ever" target="_blank"><FaTwitter /></a>
           </span>
           <span className="bannerIcon">
-            <FaLinkedinIn />
+          <a href="https://www.linkedin.com/in/evelyne-atieno-a52ab0235/" target="_blank"><FaLinkedinIn /></a>
           </span>
         </div>
       </div>
