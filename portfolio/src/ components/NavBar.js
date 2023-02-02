@@ -1,39 +1,29 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React from 'react';
 
-const NavBar = () => {
-  return (
-    <div>
-      <nav className="navbar navbar-expand-lg bg-light">
-  <div className="container-fluid">
-    <p className="navbar-brand">Evelyne</p>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/about">About</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/services">Services</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link disabled" to="skills">Skills</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link disabled" to="contact">Contact</Link>
-        </li>
-      </ul>
+function NavBar(){
+    return(
+       <div>
+           <div className="scroll-up-btn">
+        <i className="fas fa-angle-up"></i>
     </div>
-  </div>
-</nav>
-  <Outlet/>
-    </div>
-  )
+    <nav className="navbar">
+        <div className="max-width">
+            <div className="logo"><a href="amblonzi.github.io">Evely<span>ne</span></a></div>
+            <ul className="menu">
+                <li><a href="#home" className="menu-btn">Home</a></li>
+                <li><a href="#about" className="menu-btn">About</a></li>
+                <li><a href="#services" className="menu-btn">Services</a></li>
+                <li><a href="#skills" className="menu-btn">Skills</a></li>
+    
+                <li><a href="#contact" className="menu-btn">Contact</a></li>
+            </ul>
+            <div className="menu-btn">
+                <i className="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+       </div>
+    )
 }
 
-export default NavBar
+export default NavBar;
