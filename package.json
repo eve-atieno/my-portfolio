@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "react-simple-typewriter": "^5.0.1",
+    "typed.js": "^2.0.12"
   }
 }
