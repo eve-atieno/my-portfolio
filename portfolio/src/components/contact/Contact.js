@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import Title from '../layouts/Title';
 import ContactLeft from './ContactLeft';
-
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 const Contact = () => {
   const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -19,7 +20,10 @@ const Contact = () => {
   };
   // ========== Email Validation end here ================
 
-  const handleSend = (e) => {
+    
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
     if (username === "") {
       setErrMsg("Username is required!");
@@ -44,6 +48,15 @@ const Contact = () => {
       setSubject("");
       setMessage("");
     }
+    // e.preventDefault();
+
+    emailjs.sendForm('service_4zxtp7c', 'template_na5jht5', form.current, 'krjzhMpZHbpXZZqIv')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
   };
   return (
     <section
@@ -57,8 +70,11 @@ const Contact = () => {
         <div className="w-full h-auto flex flex-col lgl:flex-row justify-between">
           <ContactLeft />
           <div className="w-full lgl:w-[60%] h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] flex flex-col gap-8 p-4 lgl:p-8 rounded-lg shadow-shadowOne">
-            <form className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
-              {errMsg && (
+            <form 
+            ref={form}
+            onSubmit={sendEmail}
+            className="w-full flex flex-col gap-4 lgl:gap-6 py-2 lgl:py-5">
+               {errMsg && (
                 <p className="py-3 bg-gradient-to-r from-[#1e2024] to-[#23272b] shadow-shadowOne text-center text-orange-500 text-base tracking-wide animate-bounce">
                   {errMsg}
                 </p>
@@ -74,12 +90,13 @@ const Contact = () => {
                     Your name
                   </p>
                   <input
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                    className={`${
-                      errMsg === "Username is required!" &&
-                      "outline-designColor"
-                    } contactInput`}
+                   onChange={(e) => setUsername(e.target.value)}
+                   value={username}
+                   className={`${
+                     errMsg === "Username is required!" &&
+                     "outline-designColor"
+                   } contactInput`}
+                   name='user_name'
                     type="text"
                   />
                 </div>
@@ -88,12 +105,13 @@ const Contact = () => {
                     Phone Number
                   </p>
                   <input
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    value={phoneNumber}
-                    className={`${
-                      errMsg === "Phone number is required!" &&
-                      "outline-designColor"
-                    } contactInput`}
+                   onChange={(e) => setPhoneNumber(e.target.value)}
+                   value={phoneNumber}
+                   className={`${
+                     errMsg === "Phone number is required!" &&
+                     "outline-designColor"
+                   } contactInput`}
+                    name='user_phone'
                     type="text"
                   />
                 </div>
@@ -103,12 +121,13 @@ const Contact = () => {
                   Email
                 </p>
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  className={`${
-                    errMsg === "Please give your Email!" &&
-                    "outline-designColor"
-                  } contactInput`}
+                   onChange={(e) => setEmail(e.target.value)}
+                   value={email}
+                   className={`${
+                     errMsg === "Please give your Email!" &&
+                     "outline-designColor"
+                   } contactInput`}
+                 name='user_email'
                   type="email"
                 />
               </div>
@@ -117,12 +136,13 @@ const Contact = () => {
                   Subject
                 </p>
                 <input
-                  onChange={(e) => setSubject(e.target.value)}
-                  value={subject}
-                  className={`${
-                    errMsg === "Plese give your Subject!" &&
-                    "outline-designColor"
-                  } contactInput`}
+                 name='user_subject'
+                 onChange={(e) => setSubject(e.target.value)}
+                 value={subject}
+                 className={`${
+                   errMsg === "Plese give your Subject!" &&
+                   "outline-designColor"
+                 } contactInput`}
                   type="text"
                 />
               </div>
@@ -136,13 +156,15 @@ const Contact = () => {
                   className={`${
                     errMsg === "Message is required!" && "outline-designColor"
                   } contactTextArea`}
+                  name='message'
                   cols="30"
                   rows="8"
                 ></textarea>
               </div>
               <div className="w-full">
                 <button
-                  onClick={handleSend}
+                // onClick={handleSend}
+                 type='submit'
                   className="w-full h-12 bg-[#141518] rounded-lg text-base text-gray-400 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent"
                 >
                   Send Message
@@ -158,6 +180,8 @@ const Contact = () => {
                   {successMsg}
                 </p>
               )}
+              
+              
             </form>
           </div>
         </div>
