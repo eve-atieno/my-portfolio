@@ -39,7 +39,7 @@ const Contact = () => {
       setErrMsg("Message is required!");
     } else {
       setSuccessMsg(
-        `Thank you dear ${username}, Your Messages has been sent Successfully!`
+        `Thank you ${username}, Your Messages has been sent Successfully!`
       );
       setErrMsg("");
       setUsername("");
