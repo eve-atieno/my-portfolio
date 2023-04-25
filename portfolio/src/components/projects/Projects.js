@@ -17,8 +17,8 @@ const Projects = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-14">
         <ProjectsCard
-          title="Food Recipes"
-          des="This project involves creating a food recipe app. The frontend of the app will be developed using HTML, CSS, and JavaScript, while the data will be fetched from a public API. The app  communicates with the API to retrieve recipe information and display it in a user-friendly manner."
+          title="Denco Movers Web Application"
+          des="This project involves creating a movers website App . The frontend of the app will be developed using Reactjs, Tailwind CSS, and JavaScript, while the data will be fetched from a back-end server using Ruby on Rails. The app  communicates with the beck-end server to retrieve Services information and display it in a user-friendly manner."
           src={projectOne}
         />
         <ProjectsCard
@@ -27,11 +27,10 @@ const Projects = () => {
           src={projectTwo}
         />
         <ProjectsCard
-          title="Bank Of Flatiron"
-          des=" This project is a simple web application that allows users to view, add, and filter transactions. The transactions data is stored in a JSON file and served by a local server using the json-server package."
+          title="Donate It Web Application"
+          des=" This project is a simple web application that allows users to to view,add and post their donatins. The donations data is stored in a ruby on rails server file and served by a local server using the json-server package."
           src={projectThree}
         />
-        
         
       </div>
     </section>
